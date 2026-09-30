@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SE Asia Smart Travel - 東南アジアスマート旅ガイド</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @keyframes shimmer {
+      100% { transform: translateX(100%); }
+    }
+    .animate-shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .animate-shimmer::after {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      transform: translateX(-100%);
+      background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.15) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      animation: shimmer 2.5s infinite;
+      content: '';
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased font-sans selection:bg-cyan-500 selection:text-white">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2 font-bold text-lg tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-300">
+        <i data-lucide="compass" class="text-teal-400"></i>
+        <span>SMART TRIP GUIDE</span>
+      </div>
+      <div class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+        <a href="#vpn" class="hover:text-cyan-400 transition">動画・VPN</a>
+        <a href="#apps" class="hover:text-cyan-400 transition">Klook & 予約アプリ</a>
+        <a href="#checklist" class="hover:text-cyan-400 transition">渡航前チェック</a>
+      </div>
+      <a href="#vpn-quiz" class="text-xs font-semibold px-4 py-2 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 hover:bg-cyan-500/30 transition">
+        おすすめ診断
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 px-6 overflow-hidden">
+    <!-- Background Glow & Image -->
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80" 
+        alt="Tropical beach" 
+        class="w-full h-full object-cover opacity-20 filter brightness-75 scale-105"
+      >
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-slate-950/80 to-slate-950"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-950/70 border border-teal-500/30 text-teal-300 text-xs font-medium mb-6">
+        <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+        タイ・プーケット・クラビ・マレーシア周遊 実体験レポート
+      </div>
+      
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+        東南アジアの旅を、<br class="hidden sm:inline">
+        もっと<span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-cyan-400 to-sky-400">自由でスマート</span>に。
+      </h1>
+      
+      <p class="text-slate-300 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+        ホテルの夜にTVerやネトフリを快適に見る裏ワザから、離島バン・フェリーの最安手配、Klookで並ばないチケット予約まで。リアルな旅程をもとに厳選した必須インフラまとめ。
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="#vpn-quiz" class="animate-shimmer px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 text-white font-semibold shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-105 transition duration-200">
+          今すぐ最適VPNを3秒診断
+        </a>
+        <a href="#apps" class="px-6 py-3.5 rounded-xl bg-slate-900/80 border border-slate-700 text-slate-200 font-semibold hover:bg-slate-800 transition">
+          必須予約アプリ3選を見る
+        </a>
+      </div>
+
+      <!-- Quick Logo Strip -->
+      <div class="mt-16 pt-8 border-t border-slate-800/80">
+        <p class="text-xs uppercase tracking-widest text-slate-500 mb-4 font-semibold">現地で快適に繋がる・使えるサービス</p>
+        <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-400 font-medium">
+          <span class="flex items-center gap-1.5"><i data-lucide="tv" class="w-4 h-4 text-cyan-400"></i> TVer</span>
+          <span class="flex items-center gap-1.5"><i data-lucide="film" class="w-4 h-4 text-red-400"></i> Netflix</span>
+          <span class="flex items-center gap-1.5"><i data-lucide="ticket" class="w-4 h-4 text-orange-400"></i> Klook</span>
+          <span class="flex items-center gap-1.5"><i data-lucide="bus" class="w-4 h-4 text-emerald-400"></i> 12Go</span>
+          <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-4 h-4 text-blue-400"></i> NordVPN</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section: Travel Dilemmas (VPN Intro) -->
+  <section id="vpn" class="py-20 px-6 max-w-6xl mx-auto border-t border-slate-800/50">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">旅行者が現地で直面する「2大トラブル」</h2>
+      <p class="text-slate-400 text-sm md:text-base">ガイドブックには載っていない、ホテルや移動中のリアルな落とし穴。</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Card 1 -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-8 hover:border-slate-700 transition">
+        <div class="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center mb-6">
+          <i data-lucide="video-off" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">ホテルの夜、日本の動画が見られない</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+          歩き疲れて宿に帰った夜や長距離バス移動の暇つぶしに、TVerやNetflixを開いたら「海外からは視聴できません」のエラー。現地のテレビはタイ語ばかりで退屈な時間を過ごすことに…
+        </p>
+        <div class="text-xs text-cyan-400 font-semibold flex items-center gap-1">
+          <i data-lucide="check-circle" class="w-4 h-4"></i> VPNで「日本サーバー」を選ぶだけで即解決
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-8 hover:border-slate-700 transition">
+        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-6">
+          <i data-lucide="wifi-off" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">空港やカフェWi-Fiのクレカ決済リスク</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+          ドンムアン空港やカフェのフリーWi-Fiは通信が暗号化されていないことが多く、そのままKlookやGrab、ホテル予約でクレジットカード番号を入力するのは盗聴の危険が伴います。
+        </p>
+        <div class="text-xs text-cyan-400 font-semibold flex items-center gap-1">
+          <i data-lucide="check-circle" class="w-4 h-4"></i> ワンタップで軍事レベルの通信暗号化を適用
+        </div>
+      </div>
+    </div>
+
+    <!-- Free Trick Banner -->
+    <div class="mt-8 bg-gradient-to-r from-teal-950/60 via-cyan-950/40 to-slate-900 border border-cyan-500/30 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <span class="text-xs font-bold text-teal-400 tracking-wider uppercase">スマート旅の裏ワザ</span>
+        <h4 class="text-lg md:text-xl font-bold mt-1">30日間の返金保証で、短期旅行なら「実質0円」</h4>
+        <p class="text-slate-400 text-sm mt-1">主要大手VPNは全額返金保証付き。旅行期間中だけ安全に使って帰国後にキャンセルも可能です。</p>
+      </div>
+      <a href="#vpn-quiz" class="whitespace-nowrap px-5 py-3 rounded-xl bg-cyan-500 text-slate-950 font-bold text-sm hover:bg-cyan-400 transition">
+        おすすめVPNをチェック
+      </a>
+    </div>
+  </section>
+
+  <!-- Section: Interactive VPN Quiz & Comparison -->
+  <section id="vpn-quiz" class="py-20 px-6 max-w-6xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <div class="inline-block px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-700/40 text-cyan-400 text-xs font-semibold mb-3">
+        INTERACTIVE QUIZ
+      </div>
+      <h2 class="text-3xl font-bold mb-3">3秒でわかる！あなたに最適なVPN診断</h2>
+      <p class="text-slate-400 text-sm">重視する項目を選ぶと、ぴったりのサービスがハイライトされます。</p>
+    </div>
+
+    <!-- Quiz Buttons -->
+    <div class="flex flex-wrap justify-center gap-3 mb-10">
+      <button onclick="filterVpn('speed')" id="btn-speed" class="quiz-btn px-5 py-2.5 rounded-full text-sm font-semibold border transition bg-cyan-500 text-slate-950 border-cyan-400 shadow-md shadow-cyan-500/20">
+        🚀 速度＆動画のサクサク感重視
+      </button>
+      <button onclick="filterVpn('jp')" id="btn-jp" class="quiz-btn px-5 py-2.5 rounded-full text-sm font-semibold border transition bg-slate-900 text-slate-300 border-slate-700 hover:border-slate-500">
+        🇯🇵 完全日本語サポート・日本の会社
+      </button>
+      <button onclick="filterVpn('cost')" id="btn-cost" class="quiz-btn px-5 py-2.5 rounded-full text-sm font-semibold border transition bg-slate-900 text-slate-300 border-slate-700 hover:border-slate-500">
+        💰 コスパ＆家族・友達と同時共有
+      </button>
+    </div>
+
+    <!-- Bento Grid Comparison Cards -->
+    <div class="grid md:grid-cols-3 gap-6">
+      
+      <!-- Card 1: NordVPN -->
+      <div id="card-nord" class="vpn-card relative bg-slate-900 border-2 border-cyan-500 rounded-3xl p-7 flex flex-col justify-between shadow-xl shadow-cyan-500/10 transition duration-300">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-cyan-500 to-teal-500 text-[11px] font-bold tracking-wider text-slate-950 uppercase">
+          総合人気 No.1
+        </div>
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold text-white">NordVPN</h3>
+            <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-cyan-300 font-medium">30日間返金保証</span>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed mb-6">
+            海外旅行者・ノマド利用率No.1。東南アジアの離島からでも動画が途切れない圧倒的な高速通信。
+          </p>
+          <ul class="space-y-2.5 text-xs text-slate-300 mb-8">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> TVer・Netflix・U-NEXT完全対応</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> 111カ国・6,000台超の高速サーバー</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> 1アカウントで最大10台同時接続</li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-center mb-4">
+            <span class="text-xs text-slate-500">月額実質</span>
+            <div class="text-2xl font-black text-white">約450円〜 <span class="text-xs font-normal text-slate-400">/月</span></div>
+          </div>
+          <a href="#" class="animate-shimmer block w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 text-center font-bold text-sm text-slate-950 hover:opacity-95 transition">
+            NordVPNをチェック（公式）
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: MillenVPN -->
+      <div id="card-millen" class="vpn-card bg-slate-900/60 border border-slate-800 rounded-3xl p-7 flex flex-col justify-between hover:border-slate-700 transition duration-300">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold text-white">MillenVPN</h3>
+            <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-teal-300 font-medium">日本企業運営</span>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed mb-6">
+            日本のインターネット会社が運営。設定画面も問い合わせも100%日本語で初心者でも安心。
+          </p>
+          <ul class="space-y-2.5 text-xs text-slate-300 mb-8">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal-400"></i> 日本の主要動画サービスに特化</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal-400"></i> 7日・15日〜の短期旅行プランあり</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal-400"></i> 規約・サポートが完全日本語</li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-center mb-4">
+            <span class="text-xs text-slate-500">ワンタイムプラン</span>
+            <div class="text-2xl font-black text-white">550円〜 <span class="text-xs font-normal text-slate-400">/7日間</span></div>
+          </div>
+          <a href="#" class="block w-full py-3 rounded-xl bg-slate-800 text-center font-bold text-sm text-white hover:bg-slate-700 transition">
+            MillenVPNをチェック（公式）
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Surfshark -->
+      <div id="card-surf" class="vpn-card bg-slate-900/60 border border-slate-800 rounded-3xl p-7 flex flex-col justify-between hover:border-slate-700 transition duration-300">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold text-white">Surfshark</h3>
+            <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-sky-300 font-medium">接続台数無制限</span>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed mb-6">
+            1つの契約で何台でも接続可能。家族旅行や友達同士で割り勘すれば最安クラスで使えます。
+          </p>
+          <ul class="space-y-2.5 text-xs text-slate-300 mb-8">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-sky-400"></i> スマホ・PC無制限で繋ぎ放題</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-sky-400"></i> 30日間返金保証あり</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-sky-400"></i> 広告ブロック機能が標準付属</li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-center mb-4">
+            <span class="text-xs text-slate-500">月額実質</span>
+            <div class="text-2xl font-black text-white">約330円〜 <span class="text-xs font-normal text-slate-400">/月</span></div>
+          </div>
+          <a href="#" class="block w-full py-3 rounded-xl bg-slate-800 text-center font-bold text-sm text-white hover:bg-slate-700 transition">
+            Surfsharkをチェック（公式）
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: Travel App Ecosystem (Klook & 12Go) -->
+  <section id="apps" class="py-20 px-6 max-w-6xl mx-auto border-t border-slate-800/50">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-3xl font-bold mb-3">実体験で厳選！東南アジア旅の神アプリ3選</h2>
+      <p class="text-slate-400 text-sm">現地窓口の英語交渉・ぼったくりを回避する、渡航前のマストハブ。</p>
+    </div>
+
+    <!-- Bento Grid Apps -->
+    <div class="grid md:grid-cols-12 gap-6">
+      
+      <!-- Big Card: Klook (7 cols) -->
+      <div class="md:col-span-7 bg-slate-900/80 border border-slate-800 rounded-3xl p-8 relative overflow-hidden group">
+        <div class="relative z-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 text-xs font-bold mb-4 border border-orange-500/20">
+            アクティビティ・eSIM・空港送迎
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Klook（クルック）</h3>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            ピピ島アイランドホッピングや空港からの貸切送迎、即日開通のeSIMがすべてアプリで完結。窓口に並ぶ必要がなく、会員割引クーポンで現地購入より安くなる鉄板アプリ。
+          </p>
+          <div class="grid grid-cols-2 gap-3 mb-6 text-xs text-slate-300">
+            <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-orange-400 font-bold">✓ 空港送迎チャーター</span><br>深夜着でもボッタクリなし
+            </div>
+            <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-orange-400 font-bold">✓ 即日eSIMデータ</span><br>QRコード読み込みで開通
+            </div>
+          </div>
+          <a href="#" class="inline-flex items-center gap-2 text-sm font-bold text-orange-400 hover:text-orange-300 transition">
+            Klookの限定割引クーポンを見る <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card: 12Go (5 cols) -->
+      <div class="md:col-span-5 bg-slate-900/80 border border-slate-800 rounded-3xl p-8 relative overflow-hidden">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold mb-4 border border-emerald-500/20">
+          東南アジアの交通網完全網羅
+        </div>
+        <h3 class="text-2xl font-bold mb-3">12Go（トゥエルブゴー）</h3>
+        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+          カオソック国立公園〜プーケット間のバン移動や、ジョホールバル〜クアラルンプールの長距離バスなど、普通なら手配が難しい陸路・フェリーを事前予約できる救世主。
+        </p>
+        <a href="#" class="inline-flex items-center gap-2 text-sm font-bold text-emerald-400 hover:text-emerald-300 transition">
+          12Goで移動ルートを検索 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: Interactive Travel Checklist -->
+  <section id="checklist" class="py-20 px-6 max-w-3xl mx-auto">
+    <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-8 md:p-10 shadow-2xl">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h3 class="text-2xl font-bold">渡航前スマート準備リスト</h3>
+          <p class="text-slate-400 text-xs mt-1">タップして出発準備の完了度をチェック！</p>
+        </div>
+        <div class="text-right">
+          <span id="progress-text" class="text-2xl font-black text-cyan-400">0%</span>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="w-full bg-slate-800 rounded-full h-2.5 mb-8 overflow-hidden">
+        <div id="progress-bar" class="bg-gradient-to-r from-teal-400 to-cyan-400 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+      </div>
+
+      <!-- Checkbox Items -->
+      <div class="space-y-4 text-sm" id="checklist-items">
+        <label class="flex items-center gap-3 p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80 cursor-pointer hover:border-slate-700 transition">
+          <input type="checkbox" onchange="updateProgress()" class="w-5 h-5 rounded border-slate-700 text-cyan-500 focus:ring-0 focus:ring-offset-0 bg-slate-900">
+          <span class="text-slate-200">パスポート有効期限の確認（残存期間6ヶ月以上）</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80 cursor-pointer hover:border-slate-700 transition">
+          <input type="checkbox" onchange="updateProgress()" class="w-5 h-5 rounded border-slate-700 text-cyan-500 focus:ring-0 focus:ring-offset-0 bg-slate-900">
+          <span class="text-slate-200">Wi-Fi暗号化 ＆ 動画視聴用VPNの準備（<span class="text-cyan-400 font-semibold">NordVPN</span>等）</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80 cursor-pointer hover:border-slate-700 transition">
+          <input type="checkbox" onchange="updateProgress()" class="w-5 h-5 rounded border-slate-700 text-cyan-500 focus:ring-0 focus:ring-offset-0 bg-slate-900">
+          <span class="text-slate-200">現地用eSIMの手配（<span class="text-orange-400 font-semibold">Klook</span>アプリ）</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80 cursor-pointer hover:border-slate-700 transition">
+          <input type="checkbox" onchange="updateProgress()" class="w-5 h-5 rounded border-slate-700 text-cyan-500 focus:ring-0 focus:ring-offset-0 bg-slate-900">
+          <span class="text-slate-200">空港送迎・離島ツアーの事前予約（<span class="text-orange-400 font-semibold">Klook</span>）</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80 cursor-pointer hover:border-slate-700 transition">
+          <input type="checkbox" onchange="updateProgress()" class="w-5 h-5 rounded border-slate-700 text-cyan-500 focus:ring-0 focus:ring-offset-0 bg-slate-900">
+          <span class="text-slate-200">都市・離島間の長距離バン・フェリー予約（<span class="text-emerald-400 font-semibold">12Go</span>）</span>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 border-t border-slate-900 text-center text-xs text-slate-500">
+    <p class="mb-2">© 2026 Smart Travel Guide. 個人旅行の実体験に基づくおすすめインフラ情報。</p>
+    <p>当サイトはアフィリエイト広告プログラム（PR）を利用しています。</p>
+  </footer>
+
+  <!-- Script for Icons & Interactive Quiz -->
+  <script>
+    lucide.createIcons();
+
+    function filterVpn(type) {
+      // Reset button styles
+      document.querySelectorAll('.quiz-btn').forEach(btn => {
+        btn.className = "quiz-btn px-5 py-2.5 rounded-full text-sm font-semibold border transition bg-slate-900 text-slate-300 border-slate-700 hover:border-slate-500";
+      });
+      // Reset card styles
+      document.querySelectorAll('.vpn-card').forEach(card => {
+        card.className = "vpn-card bg-slate-900/60 border border-slate-800 rounded-3xl p-7 flex flex-col justify-between hover:border-slate-700 transition duration-300";
+      });
+
+      if (type === 'speed') {
+        document.getElementById('btn-speed').className = "quiz-btn px-5 py-2.5 rounded-full text-sm font-semibold border transition bg-cyan-500 text-slate-950 border-cyan-400 shadow-md shadow-cyan-500/20";
+        document.getElementById('card-nord').className = "vpn-card relative bg-slate-900 border-2 border-cyan-500 rounded-3xl p-7 flex flex-col justify-between shadow-xl shadow-cyan-500/10 transition duration-300 scale-[1.02]";
+      } else if (type === 'jp') {
+        document.getElementById('btn-jp').className = "quiz-btn px-5 py-2.5 rounded-full text-sm font-semibold border transition bg-teal-400 text-slate-950 border-teal-300 shadow-md shadow-teal-500/20";
+        document.getElementById('card-millen').className = "vpn-card relative bg-slate-900 border-2 border-teal-400 rounded-3xl p-7 flex flex-col justify-between shadow-xl shadow-teal-500/10 transition duration-300 scale-[1.02]";
+      } else if (type === 'cost') {
+        document.getElementById('btn-cost').className = "quiz-btn px-5 py-2.5 rounded-full text-sm font-semibold border transition bg-sky-400 text-slate-950 border-sky-300 shadow-md shadow-sky-500/20";
+        document.getElementById('card-surf').className = "vpn-card relative bg-slate-900 border-2 border-sky-400 rounded-3xl p-7 flex flex-col justify-between shadow-xl shadow-sky-500/10 transition duration-300 scale-[1.02]";
+      }
+    }
+
+    function updateProgress() {
+      const checkboxes = document.querySelectorAll('#checklist-items input[type="checkbox"]');
+      const checked = document.querySelectorAll('#checklist-items input[type="checkbox"]:checked');
+      const percent = Math.round((checked.length / checkboxes.length) * 100);
+      
+      document.getElementById('progress-bar').style.width = percent + '%';
+      document.getElementById('progress-text').innerText = percent + '%';
+    }
+  </script>
+</body>
+</html>
